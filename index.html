@@ -388,34 +388,34 @@ https://templatemo.com/tm-569-edu-meeting
           <div class="col-lg-9 align-self-center">
             <div class="row">
               <div class="col-lg-12">
-                <form id="contact" name="contactForm" action="https://script.google.com/macros/s/AKfycbwZ8eZfx1W7kVamkyiOBONT-SSfISfWneKJu2_y0MX91_z9n_cbE_qkC2b94QaAmxhRYg/exec" method="post">
+                <form id = "contact" name="contactForm" action="https://script.google.com/macros/s/AKfycbwvz2HkQYJ8mQCpT76vq11jmFGvMraJz-jykOdwJwQYCoOYmmLzLTL_ExtX0zsr4IvidA/exec" method="post">
                   <div class="row">
                     <div class="col-lg-12">
                       <h2>Thông tin liên hệ</h2>
                     </div>
                     <div class="col-lg-4">
                       <fieldset>
-                        <input name="name" type="text" id="name" placeholder="Họ và tên...*" required="">
+                        <input name="name" type="text" placeholder="Họ và tên...*" required="">
                       </fieldset>
                     </div>
                     <div class="col-lg-4">
                       <fieldset>
-                        <input name="email" type="text" id="email" pattern="[^ @]*@[^ @]*" placeholder="Email liên hệ..." required="">
+                        <input name="email" type="text" pattern="[^ @]*@[^ @]*" placeholder="Email liên hệ..." required="">
                       </fieldset>
                     </div>
                     <div class="col-lg-4">
                       <fieldset>
-                        <input name="subject" type="text" id="subject" placeholder="Môn học đăng ký...*" required="">
+                        <input name="subject" type="text" placeholder="Môn học đăng ký...*" required="">
                       </fieldset>
                     </div>
                     <div class="col-lg-12">
                       <fieldset>
-                        <textarea name="message" type="text" class="form-control" id="message" placeholder="Lời nhắn..." required=""></textarea>
+                        <textarea name="message" type="text" class="form-control" placeholder="Lời nhắn..." required=""></textarea>
                       </fieldset>
                     </div>
                     <div class="col-lg-12">
                       <fieldset>
-                        <button type="submit" id="form-submit" class="button">Gửi tin nhắn ngay</button>
+                        <button type="submit" class="button">Gửi tin nhắn ngay</button>
                       </fieldset>
                     </div>
                   </div>
@@ -463,7 +463,44 @@ https://templatemo.com/tm-569-edu-meeting
     <script src="assets/js/video.js"></script>
     <script src="assets/js/slick-slider.js"></script>
     <!--<script src="assets/js/custom.js"></script>-->
+    <script>
+      function handleSubmit(event) {
+        event.preventDefault(); // Ngăn chặn form gửi mặc định
+  
+        var form = document.getElementsByName('contactForm')[0];
+        var formData = new FormData(form);
+  
+        // Chuyển formData thành URL-encoded string
+        var data = new URLSearchParams();
+        formData.forEach((value, key) => {
+          data.append(key, value);
+        });
+  
+        // Gửi dữ liệu tới Google Apps Script
+        fetch(form.action, {
+          method: 'POST',
+          body: data,
+          mode: 'no-cors' // Sử dụng chế độ 'no-cors'
+        })
+        .then(() => {
+          alert('Đã gửi thông tin thành công!');
+          document.getElementsByName('contactForm')[0].reset(); // Reset form có name là 'contactForm'
+
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          alert('Có lỗi xảy ra khi gửi dữ liệu. Vui lòng thử lại.');
+        });
+      }
+  
+      document.addEventListener("DOMContentLoaded", function() {
+        document.getElementsByName('contactForm')[0].addEventListener('submit', handleSubmit);
+      });
+    </script>
+
     
+    
+    </script>
 
     <script>
         //according to loftblog tut
