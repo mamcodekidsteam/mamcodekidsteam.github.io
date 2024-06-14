@@ -388,31 +388,40 @@ https://templatemo.com/tm-569-edu-meeting
           <div class="col-lg-9 align-self-center">
             <div class="row">
               <div class="col-lg-12">
-                <form id = "contact" name="contactForm" action="https://script.google.com/macros/s/AKfycbwvz2HkQYJ8mQCpT76vq11jmFGvMraJz-jykOdwJwQYCoOYmmLzLTL_ExtX0zsr4IvidA/exec" method="post">
+                <form id="contact" name="contactForm" action="https://script.google.com/macros/s/AKfycbyyos0mxEi9v5YHi7560RRhRr_UgnHyzhBNFWw6dlK1klbMJ_AvnfDORuP7BOzoc8YHmw/exec" method="post">
                   <div class="row">
                     <div class="col-lg-12">
                       <h2>Thông tin liên hệ</h2>
                     </div>
-                    <div class="col-lg-4">
+                    <!-- First row with two fields -->
+                    <div class="col-lg-6">
                       <fieldset>
                         <input name="name" type="text" placeholder="Họ và tên...*" required="">
                       </fieldset>
                     </div>
-                    <div class="col-lg-4">
+                    <div class="col-lg-6">
                       <fieldset>
                         <input name="email" type="text" pattern="[^ @]*@[^ @]*" placeholder="Email liên hệ..." required="">
                       </fieldset>
                     </div>
-                    <div class="col-lg-4">
+                    <!-- Second row with two fields -->
+                    <div class="col-lg-6">
                       <fieldset>
                         <input name="subject" type="text" placeholder="Môn học đăng ký...*" required="">
                       </fieldset>
                     </div>
+                    <div class="col-lg-6">
+                      <fieldset>
+                        <input name="phone" type="number" placeholder="Số điện thoại..." required="">
+                      </fieldset>
+                    </div>
+                    <!-- Message field taking full width -->
                     <div class="col-lg-12">
                       <fieldset>
                         <textarea name="message" type="text" class="form-control" placeholder="Lời nhắn..." required=""></textarea>
                       </fieldset>
                     </div>
+                    <!-- Submit button -->
                     <div class="col-lg-12">
                       <fieldset>
                         <button type="submit" class="button">Gửi tin nhắn ngay</button>
@@ -420,6 +429,7 @@ https://templatemo.com/tm-569-edu-meeting
                     </div>
                   </div>
                 </form>
+                
               </div>
             </div>
           </div>
